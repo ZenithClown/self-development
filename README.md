@@ -14,3 +14,11 @@
 <p align = "justify"><b><a href = "https://projecteuler.net/about">Project Euler</a></b> is a website dedicated to a series of computational problems intended to be solved with computer programs. This repository, lists out the solutions for Project Euler, solved using Python3.</p>
 
 <p align = "justify"><b>Note:</b> The same solution has been uploaded into Hacker-Rank Website, and my complete profile can be accessed from the header-links.</p>
+
+## Running the Code
+<p align = "justify">Using any Environment, where python3 is installed, this codes can be run - without requiring any sophisticated libraries (like NumPy, pandas, etc.). The general convention is as below:</p>
+
+```python
+from euler001 import * # where 001 = problem number
+solver(1000) # prints out the answer
+```
