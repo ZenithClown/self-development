@@ -13,3 +13,31 @@
 }
 
 /* set style on specific tags */
+.full-height {
+  height: 100vh;
+}
+
+.overlay {
+  background-color: rgba(90, 139, 123, 0.4);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.container {
+  width: 95%;
+}
+
+/* media elements for size and proportion */
+@media (max-width: 992px) {
+  main {
+    padding-left: 0px;
+    padding-top: 64px;
+  }
+
+  .container {
+    margin: auto;
+  }
+}
