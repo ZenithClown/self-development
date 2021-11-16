@@ -24,6 +24,9 @@
     integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
+  <!-- materialize minified -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
+
   <!-- favicon -->
   <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png" />
@@ -42,10 +45,11 @@
   <!-- >>> begin sidebar <<<  -->
   <div class="sidebar">
     <div class="logo-details">
-      <i class='bx bx-ghost icon'></i>
-      <div class="logo_name">Portfolio</div>
+      <i class='bx bx-code-alt icon'></i>
+      <div class="logo_name kanit-font">dP's Website</div>
       <i class='bx bx-menu' id="btn"></i>
     </div>
+
     <ul class="nav-list">
       <li>
         <a href="#home">
@@ -68,11 +72,13 @@
         </a>
         <span class="tooltip">Projects</span>
       </li>
+
+      <!-- end section of sidebar -->
       <li class="profile">
         <div class="profile-details">
           <img src="images/face.jpg" alt="profileImg">
           <div class="name_job">
-            <div class="name">Debmalya Pramanik</div>
+            <div class="name kanit-font"><b>Debmalya Pramanik</b></div>
             <div class="job">Data Science & Analyst</div>
           </div>
         </div>
@@ -83,12 +89,34 @@
   <!-- >>> end sidebar <<<  -->
 
   <!-- >>> Main Secton <<< -->
-  <main>
+  <main class="main-content-section">
+    <!--
+      this will contain introduction and general greetings
+      introduction section will not be available in the sidebar navigation
+    -->
+    <section id="intro">
+      Hi, I'm <strong>Debmalya Pramanik</strong>
+    </section>
   </main>
   <!-- >>> End Main Section <<< -->
 
   <!-- load all script files -->
   <script src="js/sidebar.js"></script>
+
+  <!-- Materialize - Compiled and minified JavaScript-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
+  <script>
+    // Materialize - Initializers
+    $(document).ready(function () {
+      $(".scrollspy").scrollSpy()
+      // Initialize collapse button
+      $(".button-collapse").sideNav({
+        menuWidth: 190, // Default is 240
+        edge: "left", // Choose the horizontal origin
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      })
+    })
+  </script>
 </body>
 
 </html>

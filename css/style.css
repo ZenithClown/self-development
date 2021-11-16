@@ -1,10 +1,15 @@
-/* Google Font Link */
+/* custom font designs */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-/* set style for total page */
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Bokor&family=Kanit:wght@300&display=swap');
+.kanit-font{
+  font-family: 'Kanit', sans-serif;
+}
+
+/* set style on specific tags */
