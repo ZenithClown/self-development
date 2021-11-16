@@ -30,8 +30,12 @@
   width: 95%;
 }
 
+.intro-name {
+  color: darkblue;
+}
+
 /* media elements for size and proportion */
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   main {
     padding-left: 0px;
     padding-top: 64px;
@@ -39,5 +43,43 @@
 
   .container {
     margin: auto;
+  }
+
+  /* set responsive font sizes */
+  /* https://css-tricks.com/a-complete-guide-to-calc-in-css/ */
+  h1, .h1 {
+    font-size: calc(1.375rem + 1.5vw);
+  }
+
+  h2, .h2 {
+    font-size: calc(1.325rem + 0.9vw);
+  }
+
+  h3, .h3 {
+    font-size: calc(1.3rem + 0.6vw);
+  }
+
+  h4, .h4 {
+    font-size: calc(1.275rem + 0.3vw);
+  }
+
+  h5, .h5 {
+    font-size: calc(1.25rem + 0.3vw);
+  }
+
+  .big-font-1 {
+    font-size: calc(1.725rem + 5vw);
+  }
+
+  .big-font-2 {
+    font-size: calc(1.625rem + 4.5vw);
+  }
+
+  .big-font-3 {
+    font-size: calc(1.525rem + 3.5vw);
+  }
+
+  .big-font-4 {
+    font-size: calc(1.425rem + 1.5vw);
   }
 }
