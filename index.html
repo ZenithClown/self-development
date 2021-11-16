@@ -7,10 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- seo contents, to modify -->
-  <meta name="description" content="Portfolio Website for Debmalya Pramanik">
+  <meta name="author" content="Debmalya Pramanik">
+  <meta name="description" content="Data Science and Analyst with a passion for Research and Open Source Development">
   <meta name="keywords"
-    content="portfolio, python, machine learning, deep learning, data science, data analyst, html, css, js">
+    content="portfolio, python, machine learning, deep learning, data science, data analyst, data engineer, mlops, open source, academic research">
   <meta name="robots" content="INDEX, FOLLOW">
+
+  <!-- adding google site verification for indexing -->
+  <meta name="google-site-verification" content="ZeaUYtgWMDFeVFqyu7bg1NPTsBfWaIog9DnOkWACF9w" />
 
   <!-- normalize all browser -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
@@ -19,6 +23,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
     integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+  <!-- materialize minified -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
 
   <!-- add style sheets -->
   <link rel="stylesheet" href="css/style.css">
@@ -29,56 +43,80 @@
 
 <body>
   <!-- >>> begin sidebar <<<  -->
-    <div class="sidebar">
-      <div class="logo-details">
-        <i class='bx bx-ghost icon'></i>
-        <div class="logo_name">Portfolio</div>
-        <i class='bx bx-menu' id="btn"></i>
-      </div>
-      <ul class="nav-list">
-        <li>
-          <a href="#home">
-            <i class='bx bx-home-alt'></i>
-            <span class="links_name">Home</span>
-          </a>
-          <span class="tooltip">Home</span>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bxs-institution'></i>
-            <span class="links_name">Education & Work</span>
-          </a>
-          <span class="tooltip">Education & Work</span>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bxs-spreadsheet'></i>
-            <span class="links_name">Projects</span>
-          </a>
-          <span class="tooltip">Projects</span>
-        </li>
-        <li class="profile">
-          <div class="profile-details">
-            <img src="images/face.jpg" alt="profileImg">
-            <div class="name_job">
-              <div class="name">Debmalya Pramanik</div>
-              <div class="job">Data Science & Analyst</div>
-            </div>
-          </div>
-          <i class='bx bx-info-circle' id="info"></i>
-        </li>
-      </ul>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bx-code-alt icon'></i>
+      <div class="logo_name kanit-font">dP's Website</div>
+      <i class='bx bx-menu' id="btn"></i>
     </div>
-    <!-- >>> end sidebar <<<  -->
-    
-    <section class="home-section" id="home">
-      <!-- <h1 class="intro"> -->
-        Hi, I'm <strong>Debmalya Pramanik</strong>
-      <!-- </h1> -->
+
+    <ul class="nav-list">
+      <li>
+        <a href="#home">
+          <i class='bx bx-home-alt'></i>
+          <span class="links_name">Home</span>
+        </a>
+        <span class="tooltip">Home</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bxs-institution'></i>
+          <span class="links_name">Education & Work</span>
+        </a>
+        <span class="tooltip">Education & Work</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bxs-spreadsheet'></i>
+          <span class="links_name">Projects</span>
+        </a>
+        <span class="tooltip">Projects</span>
+      </li>
+
+      <!-- end section of sidebar -->
+      <li class="profile">
+        <div class="profile-details">
+          <img src="images/face.jpg" alt="profileImg">
+          <div class="name_job">
+            <div class="name kanit-font"><b>Debmalya Pramanik</b></div>
+            <div class="job">Data Science & Analyst</div>
+          </div>
+        </div>
+        <i class='bx bx-info-circle' id="info"></i>
+      </li>
+    </ul>
+  </div>
+  <!-- >>> end sidebar <<<  -->
+
+  <!-- >>> Main Secton <<< -->
+  <main class="main-content-section">
+    <!--
+      this will contain introduction and general greetings
+      introduction section will not be available in the sidebar navigation
+    -->
+    <section id="intro">
+      Hi, I'm <strong>Debmalya Pramanik</strong>
     </section>
+  </main>
+  <!-- >>> End Main Section <<< -->
 
   <!-- load all script files -->
   <script src="js/sidebar.js"></script>
+
+  <!-- Materialize - Compiled and minified JavaScript-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
+  <script>
+    // Materialize - Initializers
+    $(document).ready(function () {
+      $(".scrollspy").scrollSpy()
+      // Initialize collapse button
+      $(".button-collapse").sideNav({
+        menuWidth: 190, // Default is 240
+        edge: "left", // Choose the horizontal origin
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      })
+    })
+  </script>
 </body>
 
 </html>
