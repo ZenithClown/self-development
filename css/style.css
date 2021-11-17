@@ -1,20 +1,26 @@
 /* custom font designs */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Bokor&family=Kanit:wght@300&display=swap');
-.kanit-font{
+.kanit-font {
   font-family: 'Kanit', sans-serif;
+}
+
+.praise-font {
+  font-family: 'Praise', cursive;
+}
+
+.pacifico-font {
+  font-family: 'Pacifico', cursive;
 }
 
 /* set style on specific tags */
 .full-height {
-  height: 100vh;
+  height: 95vh;
 }
 
 .overlay {
@@ -34,15 +40,41 @@
   color: darkblue;
 }
 
+.all-center {
+  /* horizontal and vertical center alignment */
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* prevent sup and sub to affect line height */
+/* https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/ */
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -1.25em;
+}
+
+sub { 
+  top: 0.4em; 
+}
+
 /* media elements for size and proportion */
-@media (max-width: 1200px) {
+@media (max-width: 2000px) {
   main {
     padding-left: 0px;
-    padding-top: 64px;
+    padding-top: 28px;
   }
 
   .container {
     margin: auto;
+  }
+
+  /* 
+    ! settings for main elements
+  */
+
+  #intro {
+    background: url("assets/images/background.png");
   }
 
   /* set responsive font sizes */
@@ -81,5 +113,19 @@
 
   .big-font-4 {
     font-size: calc(1.425rem + 1.5vw);
+  }
+
+  .big-font-5 {
+    font-size: calc(1rem + 1vw);
+  }
+
+  .big-font-5-center {
+    text-align: center;
+    font-size: calc(1rem + 1vw);
+  }
+
+  .reference {
+    font-size: xx-small;
+    color: darkblue;
   }
 }
