@@ -62,3 +62,36 @@
 *.xlsx -crlf -diff -merge
 *.docx -crlf -diff -merge
 *.pptx -crlf -diff -merge
+
+##---------------------------------------------------
+# Python
+##---------------------------------------------------
+
+# Basic .gitattributes for a python repo.
+
+# Source files
+# ============
+*.py  text diff=python
+*.pxd text diff=python
+*.py3 text diff=python
+*.pyi text diff=python
+*.pyw text diff=python
+*.pyx text diff=python
+*.pyz text diff=python
+
+# Binary files: *.py[cod] is IGNORED in .gitignore
+# Make Necessary Changes, and add them as binary - if Required
+# ============================================================
+*.p      binary
+*.db     binary
+*.pkl    binary
+*.pickle binary
+
+# Note: .db, .p, and .pkl files are associated
+# with the python modules ``pickle``, ``dbm.*``,
+# ``shelve``, ``marshal``, ``anydbm``, & ``bsddb``
+# (among others).
+
+# Jupyter Notebooks
+# =================
+*.ipynb     text
