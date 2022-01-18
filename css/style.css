@@ -1,21 +1,8 @@
-/* custom font designs */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
-}
-
-.kanit-font {
-  font-family: 'Kanit', sans-serif;
-}
-
-.praise-font {
-  font-family: 'Praise', cursive;
-}
-
-.pacifico-font {
-  font-family: 'Pacifico', cursive;
 }
 
 /* set style on specific tags */
@@ -30,6 +17,15 @@
   position: absolute;
   top: 0;
   width: 100%;
+}
+
+.landing {
+  background-color: #081f1c;
+  background-size: contain;
+}
+
+.white-color {
+  color: white;
 }
 
 .container {
@@ -122,6 +118,15 @@ sub {
   .big-font-5-center {
     text-align: center;
     font-size: calc(1rem + 1vw);
+  }
+
+  .big-font-6-center {
+    text-align: center;
+    font-size: calc(0.7rem + 0.7vw);
+  }
+
+  .small-font {
+    font-size: calc(0.6rem + 0.6vw);
   }
 
   .reference {
