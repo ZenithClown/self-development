@@ -31,8 +31,8 @@ class SnakeGame(object):
 
         # initialize display
         self.display = pygame.display.set_mode((self.width, self.height))
-        self.display.fill(self.BACKGROUND)
 
+        self.clock = pygame.time.Clock()
         pygame.display.set_caption("Snake Game")
 
         # initialize game state
@@ -48,14 +48,13 @@ class SnakeGame(object):
 
         self.score = 0
         self._place_food_() # place food randomly, and initialize food
-        self._create_ui_()
 
     
     def _place_food_(self) -> None:
         """Randomly Place a Food in the Board"""
 
         x = randint(0, (self.width - self.BLOCK_SIZE) // self.BLOCK_SIZE) * self.BLOCK_SIZE
-        y = randint(0, (self.width - self.BLOCK_SIZE) // self.BLOCK_SIZE) * self.BLOCK_SIZE
+        y = randint(0, (self.height - self.BLOCK_SIZE) // self.BLOCK_SIZE) * self.BLOCK_SIZE
 
         self.food = self.point(x, y)
         if self.food in self.snake:
@@ -64,8 +63,10 @@ class SnakeGame(object):
         return None
 
 
-    def _create_ui_(self) -> None:
+    def _update_ui_(self) -> None:
         """Create Front-End, i.e. Draw Snake, Food and Scoreboard"""
+
+        self.display.fill(self.BACKGROUND) # ! redraw gameboard on each run
 
         for pt in self.snake:
             pygame.draw.rect(self.display, self.SNAKECOLOR1, pygame.Rect(pt.x, pt.y, self.BLOCK_SIZE, self.BLOCK_SIZE))
@@ -100,5 +101,98 @@ class SnakeGame(object):
         return None
 
 
+    def playGame(self):
+        """Play Snake Game with `arrowkeys` and Enjoy!"""
+
+        ### collect user input ###
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+            elif event.type == pygame.KEYDOWN:
+                # check keystrokes
+                # only `arrowkeys` are allowed/registered
+                if event.key == pygame.K_LEFT:
+                    self.direction = DIRECTION.LEFT
+                elif event.key == pygame.K_RIGHT:
+                    self.direction = DIRECTION.RIGHT
+                elif event.key == pygame.K_UP:
+                    self.direction = DIRECTION.UP
+                elif event.key == pygame.K_DOWN:
+                    self.direction = DIRECTION.DOWN
+                else:
+                    pass # do nothing
+
+            else:
+                # ! this should not happen
+                pass
+
+        ### move snake as per keystroke ###
+        self._move_snake_(self.direction) # update snake head
+        self.snake.insert(0, self.snakeHead)
+
+        ### check if game over ###
+        if self._is_collision_():
+            pygame.quit()
+            return True, self.score # True > game is over due to collision
+
+        ### place food when eaten ###
+        if self.snakeHead == self.food:
+            self.score += 1 # update score on eaten
+            self._place_food_()
+        else:
+            self.snake.pop()
+
+        ### update ui and game-clock ###
+        self._update_ui_()
+        self.clock.tick(self.SPEED)
+
+        return False, self.score # False > game is not over
+
+
+    def _is_collision_(self) -> bool:
+        """Check if the Snake Collides with the Boundary or Bites Self"""
+
+        # boundary condition
+        if (self.snakeHead.x > self.width - self.BLOCK_SIZE) or (self.snakeHead.x < 0) or \
+           (self.snakeHead.y > self.height- self.BLOCK_SIZE) or (self.snakeHead.y < 0):
+            return True
+
+        # if snake eats self
+        if self.snakeHead in self.snake[1:]:
+            return True
+
+        return False # no game over condition
+
+
+    def _move_snake_(self, direction) -> None:
+        x = self.snakeHead.x
+        y = self.snakeHead.y
+
+        if direction == DIRECTION.RIGHT:
+            x += self.BLOCK_SIZE
+        elif direction == DIRECTION.LEFT:
+            x -= self.BLOCK_SIZE
+        elif direction == DIRECTION.UP:
+            y -= self.BLOCK_SIZE
+        elif direction == DIRECTION.DOWN:
+            y += self.BLOCK_SIZE
+        else:
+            raise ValueError("Internal Error, this direction should not be registered")
+
+        self.snakeHead = self.point(x, y)
+        return None
+
+
 if __name__ == "__main__":
-    pass
+    game = SnakeGame()
+
+    # start game, run unless game ends
+    while True:
+        gameOver, score = game.playGame()
+
+        if gameOver:
+            break
+
+    print(f"Final Score: {score}")
