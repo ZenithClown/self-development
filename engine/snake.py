@@ -16,6 +16,7 @@ python snake.py
 """
 
 import json
+from turtle import width
 import pygame
 from enum import Enum
 from random import randint
@@ -89,9 +90,15 @@ class SnakeGame(object):
 
         pygame.draw.rect(self.display, self.FOODCOLOR, pygame.Rect(self.food.x, self.food.y, self.BLOCK_SIZE, self.BLOCK_SIZE))
 
+        # adding a boundary wall of `int(self.BLOCK_SIZE / 2)` on all sides
+        pygame.draw.line(self.display, self.BOUNDARY, (0, 0), (self.width, 0), width = int(self.BLOCK_SIZE / 2))
+        pygame.draw.line(self.display, self.BOUNDARY, (self.width, 0), (self.width, self.height), width = int(self.BLOCK_SIZE / 2))
+        pygame.draw.line(self.display, self.BOUNDARY, (self.width, self.height), (0, self.height), width = int(self.BLOCK_SIZE / 2))
+        pygame.draw.line(self.display, self.BOUNDARY, (0, self.height), (0, 0), width = int(self.BLOCK_SIZE / 2))
+
         # score board
         text = self.font.render(f"Score: {self.score}", True, self.FOREGROUND)
-        self.display.blit(text, [0, 0])
+        self.display.blit(text, [int(self.BLOCK_SIZE / 2) + 1, int(self.BLOCK_SIZE / 2) + 1]) # leave space for wall-boundary
         pygame.display.flip()
 
         return None
