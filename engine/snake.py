@@ -149,6 +149,9 @@ class SnakeGame(object):
     def _play_game_via_auto_(self, actions : Iterable):
         """Play Snake Game via AI Control"""
 
+        reward = 0
+        self.num_frames += 1
+
         ### collect user input ###
         for event in pygame.event.get():
             # * no user input is required however, we may need
@@ -157,10 +160,29 @@ class SnakeGame(object):
                 pygame.quit()
                 quit()
                 
-            ### move snake as per actions/states ###
-            self.direction = self.predictDirection(actions)
+        ### move snake as per actions/states ###
+        self.direction = self.predictDirection(actions)
+        self._move_snake_(self.direction) # update snake head
+        self.snake.insert(0, self.snakeHead)
 
-        return None, True, None
+        ### check if game over ###
+        if (self._is_collision_()) or (len(self.snake) * 100 <= self.num_frames):
+            reward -= 10 # penalize the nn-model
+            return reward, True, self.score # True > game is over due to collision
+
+        ### place food when eaten ###
+        if self.snakeHead == self.food:
+            reward += 10 # reward the nn-model
+            self.score += 1 # update score on eaten
+            self._place_food_()
+        else:
+            self.snake.pop()
+
+        ### update ui and game-clock ###
+        self._update_ui_()
+        self.clock.tick(self.SPEED)
+
+        return reward, False, self.score # False > game is not over
     
     def _play_game_via_keys_(self):
         """Play Snake Game with `arrowkeys` and Enjoy!"""
@@ -253,7 +275,7 @@ class SnakeGame(object):
 
 
 if __name__ == "__main__":
-    game = SnakeGame(enableAI = True)
+    game = SnakeGame()
 
     # start game, run unless game ends
     while True:
