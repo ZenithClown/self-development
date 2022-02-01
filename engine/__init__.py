@@ -14,3 +14,6 @@ List of Games Available:
 @author:  Debmalya Pramanik
 @Contact: dPramanik.official@gmail.com
 """
+
+# init-time options registrations
+from .snake import SnakeGame
