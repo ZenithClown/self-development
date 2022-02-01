@@ -19,6 +19,7 @@ import json
 import pygame
 from enum import Enum
 from random import randint
+from typing import Iterable
 from collections import namedtuple
 from os.path import abspath, dirname, join
 
@@ -38,9 +39,12 @@ class SnakeGame(object):
     font  = pygame.font.Font(join(abspath(dirname(__file__)), "Oswald-ExtraLight.ttf"), 17)
     point = namedtuple("point", "x, y")
 
-    def __init__(self, width : int = 640, height : int = 480) -> None:
+    def __init__(self, width : int = 640, height : int = 480, enableAI : bool = False) -> None:
         self.width = width
         self.height = height
+
+        # all types of DeepQ/NN functionality should be controlled via enableAI
+        self.enableAI = enableAI
 
         # load configurations
         self._load_config_()
@@ -51,7 +55,11 @@ class SnakeGame(object):
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Snake Game")
 
-        # initialize game state
+        # * initialize game with initial parameters
+        self._init_game_()
+
+
+    def _init_game_(self) -> None:
         # TODO randomize start point, direction
         self.direction = DIRECTION.RIGHT
         self.snakeHead = self.point(self.width / 2, self.height / 2)
@@ -64,6 +72,12 @@ class SnakeGame(object):
 
         self.score = 0
         self._place_food_() # place food randomly, and initialize food
+
+        # ! set a frame/loop counter
+        # * this is useful to stop game when the system falls inside a infinit-loop
+        self.num_frames = 0 # this is ignored when `self.enableAI = False`
+
+        return None
 
     
     def _place_food_(self) -> None:
@@ -123,7 +137,32 @@ class SnakeGame(object):
         return None
 
 
-    def playGame(self):
+    def playGame(self, actions : Iterable = None):
+        """Return a Function Based on AI Parameter"""
+
+        if not self.enableAI:
+            return self._play_game_via_keys_()
+
+        return self._play_game_via_auto_(actions) # return function when ai is enabled
+        
+        
+    def _play_game_via_auto_(self, actions : Iterable):
+        """Play Snake Game via AI Control"""
+
+        ### collect user input ###
+        for event in pygame.event.get():
+            # * no user input is required however, we may need
+            # to close when `QUIT` button is pressed - i.e. exit out program
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+                
+            ### move snake as per actions/states ###
+            self.direction = self.predictDirection(actions)
+
+        return None, True, None
+    
+    def _play_game_via_keys_(self):
         """Play Snake Game with `arrowkeys` and Enjoy!"""
 
         ### collect user input ###
@@ -157,7 +196,7 @@ class SnakeGame(object):
         ### check if game over ###
         if self._is_collision_():
             pygame.quit()
-            return True, self.score # True > game is over due to collision
+            return None, True, self.score # True > game is over due to collision
 
         ### place food when eaten ###
         if self.snakeHead == self.food:
@@ -170,7 +209,7 @@ class SnakeGame(object):
         self._update_ui_()
         self.clock.tick(self.SPEED)
 
-        return False, self.score # False > game is not over
+        return None, False, self.score # False > game is not over
 
 
     def _is_collision_(self) -> bool:
@@ -207,12 +246,18 @@ class SnakeGame(object):
         return None
 
 
+    def predictDirection(self, actions : Iterable):
+        """Predict Direction based on Certain `actions`"""
+
+        return DIRECTION.DOWN # ! code logic here
+
+
 if __name__ == "__main__":
-    game = SnakeGame()
+    game = SnakeGame(enableAI = True)
 
     # start game, run unless game ends
     while True:
-        gameOver, score = game.playGame()
+        _, gameOver, score = game.playGame()
 
         if gameOver:
             break
