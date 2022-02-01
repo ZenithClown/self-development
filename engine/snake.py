@@ -12,16 +12,17 @@ python snake.py
 
 @author:  Debmalya Pramanik
 @Contact: dPramanik.official@gmail.com
-@version: 1.0.0
+@version: 1.0.1
 """
 
 import json
-from turtle import width
 import pygame
 from enum import Enum
 from random import randint
 from collections import namedtuple
 from os.path import abspath, dirname, join
+
+pygame.init() # initialize gaming module
 
 class DIRECTION(Enum):
     """define direction of movements"""
@@ -34,8 +35,7 @@ class DIRECTION(Enum):
 class SnakeGame(object):
     """Snake Game AI and Mechanics"""
 
-    pygame.init() # initialize gaming module
-    font  = pygame.font.Font("Oswald-ExtraLight.ttf", 17)
+    font  = pygame.font.Font(join(abspath(dirname(__file__)), "Oswald-ExtraLight.ttf"), 17)
     point = namedtuple("point", "x, y")
 
     def __init__(self, width : int = 640, height : int = 480) -> None:
