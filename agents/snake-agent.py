@@ -13,6 +13,7 @@ from os.path import abspath, dirname, join
 
 # append engine directory
 sys.path.append(join(dirname(abspath(__file__)), ".."))
+from utilities import plot
 from engine import SnakeGame, DIRECTION
 
 class SnakeAgent(object):
@@ -42,7 +43,7 @@ class SnakeAgent(object):
 
 
     ### definations of other functions ###
-    def _read_environment_(self, game) -> np.ndarray:
+    def get_state(self, game) -> np.ndarray:
         """
         An efficient agent understand its environment based on certain informations. This
         function is defined such that the `agent` i.e. the snake learns about its
@@ -151,6 +152,7 @@ if __name__ == "__main__":
     
     cur_score = 0
     best_score = 0
+    total_score = 0 # for calculating mean of all gameplays
 
     ### define models, agents, etc. and start training ###
     game = SnakeGame(enableAI = True)
@@ -158,10 +160,36 @@ if __name__ == "__main__":
 
     # start game, run unless game ends
     while True:
-        _, gameOver, score = game.playGame()
-        print(agent._read_environment_(game))
+        state_old = agent.get_state(game)
+        predicted_move = agent.get_action(state_old)
+
+        ### move snake and get current information ###
+        reward, gameOver, score = game.playGame(predicted_move)
+        state_new = agent.get_state(game)
+
+        # train short memory
+        agent.train_short_memory(state_old, predicted_move, reward, state_new, gameOver)
+
+        # store history
+        agent._store_history_(state_old, predicted_move, reward, state_new, gameOver)
 
         if gameOver:
-            break
+            # train long memory and plot results
+            game._init_game_()
+            agent.n_games += 1
+
+            agent.train_long_memory()
+
+            if cur_score > best_score:
+                best_score = cur_score
+                agent.model.save()
+
+            print(f"Game: #{agent.n_games}, Score = {cur_score}, Best Score = {best_score}")
+
+            scores.append(cur_score)
+            total_score += score
+            mean_scores.append(total_score / agent.n_games)
+
+            plot(scores, mean_scores)
 
     print(f"Final Score: {score}")
