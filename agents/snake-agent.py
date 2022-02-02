@@ -4,6 +4,7 @@
 
 import sys
 import json
+import time
 import torch
 import random
 import numpy as np
@@ -13,6 +14,7 @@ from os.path import abspath, dirname, join
 
 # append engine directory
 sys.path.append(join(dirname(abspath(__file__)), ".."))
+from models import * # noqa: F403
 from utilities import plot
 from engine import SnakeGame, DIRECTION
 
@@ -31,15 +33,7 @@ class SnakeAgent(object):
         ### define `model` and `trainer` attributes ###
         # defined from model params such that loading/changing is easy
         self.model = model
-        self.trainer = trainer
-
-
-    ### define lambdas/short-functions ###
-    _store_history_ : lambda self, states, action, reward, next_state, _is_game_over_ : \
-        self.memory.append(states, action, reward, next_state, _is_game_over_)
-
-    train_short_memory : lambda self, states, action, reward, next_state, _is_game_over_ : \
-        self.trainer.train_setp(states, action, reward, next_state, _is_game_over_) # w/o batch
+        self.trainer = trainer(self.model, lr = kwargs.get("lr", 0.7), gamma = self.gamma)
 
 
     ### definations of other functions ###
@@ -110,6 +104,10 @@ class SnakeAgent(object):
         return np.array(states, dtype = np.int8)
 
 
+    def train_short_memory(self, states, action, reward, next_state, _is_game_over_):
+        self.trainer.train_step(states, action, reward, next_state, _is_game_over_) # w/o batch
+
+
     def train_long_memory(self) -> None:
         """TODO Documentations"""
 
@@ -119,7 +117,11 @@ class SnakeAgent(object):
             mini_sample = self.memory
 
         states, action, reward, next_state, _is_game_over_ = zip(*mini_sample)
-        self.trainer.train_setp(states, action, reward, next_state, _is_game_over_)
+        self.trainer.train_step(states, action, reward, next_state, _is_game_over_)
+
+
+    def _store_history_(self, states, action, reward, next_state, _is_game_over_):
+        self.memory.append((states, action, reward, next_state, _is_game_over_))
 
 
     def get_action(self, states : np.ndarray) -> Iterable:
@@ -140,6 +142,7 @@ class SnakeAgent(object):
 
 
 if __name__ == "__main__":
+    print("=== AI Learns to Play Snake Game ===")
     with open(join(abspath(dirname(__file__)), "..", "config", "snake.json"), "r") as f:
         # * read and create attributes from snake configurations
         config = json.load(f) # read config file
@@ -150,15 +153,18 @@ if __name__ == "__main__":
     scores = []
     mean_scores = []
     
-    cur_score = 0
     best_score = 0
     total_score = 0 # for calculating mean of all gameplays
 
     ### define models, agents, etc. and start training ###
+    print(f"{time.ctime()} Start Initializations")
     game = SnakeGame(enableAI = True)
-    agent = SnakeAgent(None, None, BLOCK_SIZE = BLOCK_SIZE)
+
+    model = Linear_QNet(11, 256, 3)
+    agent = SnakeAgent(model, QTrainer, BLOCK_SIZE = BLOCK_SIZE, lr = 1e-3)
 
     # start game, run unless game ends
+    print(f"{time.ctime()} Start Model Training")
     while True:
         state_old = agent.get_state(game)
         predicted_move = agent.get_action(state_old)
@@ -180,16 +186,14 @@ if __name__ == "__main__":
 
             agent.train_long_memory()
 
-            if cur_score > best_score:
-                best_score = cur_score
+            if score > best_score:
+                best_score = score
                 agent.model.save()
 
-            print(f"Game: #{agent.n_games}, Score = {cur_score}, Best Score = {best_score}")
+            print(f"  Game: #{agent.n_games}, Score = {score}, Best Score = {best_score}")
 
-            scores.append(cur_score)
+            scores.append(score)
             total_score += score
             mean_scores.append(total_score / agent.n_games)
 
-            plot(scores, mean_scores)
-
-    print(f"Final Score: {score}")
+            plot([scores, mean_scores])

@@ -17,6 +17,7 @@ python snake.py
 
 import json
 import pygame
+import numpy as np
 from enum import Enum
 from random import randint
 from typing import Iterable
@@ -146,7 +147,7 @@ class SnakeGame(object):
         return self._play_game_via_auto_(actions) # return function when ai is enabled
         
         
-    def _play_game_via_auto_(self, actions : Iterable):
+    def _play_game_via_auto_(self, actions : Iterable[int]):
         """Play Snake Game via AI Control"""
 
         reward = 0
@@ -159,9 +160,20 @@ class SnakeGame(object):
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-                
+
+        ### define clockwise moving direction ###
+        clockwise = [DIRECTION.RIGHT, DIRECTION.DOWN, DIRECTION.LEFT, DIRECTION.UP]
+        idx = clockwise.index(self.direction)
+        
+        ### find next direction ###
+        if np.array_equal(actions, [1, 0, 0]):
+            self.direction = clockwise[idx] # no change
+        elif np.array_equal(actions, [0, 1, 0]):
+            self.direction = clockwise[(idx + 1) % 4] # right turn
+        else:
+            self.direction = clockwise[(idx - 1) % 4] # left turn
+
         ### move snake as per actions/states ###
-        self.direction = self.predictDirection(actions)
         self._move_snake_(self.direction) # update snake head
         self.snake.insert(0, self.snakeHead)
 
@@ -272,12 +284,6 @@ class SnakeGame(object):
 
         self.snakeHead = self.point(x, y)
         return None
-
-
-    def predictDirection(self, actions : Iterable):
-        """Predict Direction based on Certain `actions`"""
-
-        return DIRECTION.DOWN # ! code logic here
 
 
 if __name__ == "__main__":

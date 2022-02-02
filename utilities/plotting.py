@@ -26,8 +26,11 @@ def plot(x_args : Iterable[Iterable], title : str = "Model Training", **kwargs):
     for idx, xs in enumerate(x_args):
         # * while plotting lines, send line label for identification
         # ! else line label is dynamically allocated as number (idx)
-        cur_label = kwargs.get("labels", list(range(1, len(xs) + 1)))[idx]
-        plt.plot(xs, label = cur_label) # plot n-lines w/o changing function
+        # cur_label = kwargs.get("labels", list(range(1, len(xs) + 1)))[idx]
+        # TODO add labeling feature
+        plt.plot(xs, label = idx) # plot n-lines w/o changing function
+
+    plt.legend(loc = "upper left")
 
     # auto set xlimits and ylimits
     # else, have provision for dynamic allocation
