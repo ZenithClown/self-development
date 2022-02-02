@@ -6,45 +6,66 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
-class QTrainer:
-    def __init__(self, model, lr, gamma):
+class QTrainer(object):
+    """Defination of a QTrainer, a Trainer for Q-Learning"""
+    
+    def __init__(self, model, lr, gamma) -> None:
+        """
+        Create an instance of QTrainer with `trainer = QTrainer(model, lr, gamma)`
+        that understands the `environment` and sets attributes to the `agent`s' which
+        performs certain tasks.
+        
+        :param model: A neural network model (using `pytorch`) that will be used for
+                      training and validation.
+                      
+        :param lr: Learning rate of the model.
+        
+        :param gamma: Discount parameter of the QNet.
+        """
+        
         self.lr = lr
         self.gamma = gamma
         self.model = model
-        self.optimizer = optim.Adam(model.parameters(), lr=self.lr)
         self.criterion = nn.MSELoss()
-
-    def train_step(self, state, action, reward, next_state, done):
-        state = torch.tensor(state, dtype=torch.float)
-        next_state = torch.tensor(next_state, dtype=torch.float)
-        action = torch.tensor(action, dtype=torch.long)
-        reward = torch.tensor(reward, dtype=torch.float)
-        # (n, x)
-
-        if len(state.shape) == 1:
-            # (1, x)
-            state = torch.unsqueeze(state, 0)
-            next_state = torch.unsqueeze(next_state, 0)
+        self.optimizer = optim.Adam(model.parameters(), lr = self.lr)
+        
+        
+    def train_step(self, states, action, reward, next_state, gameOver) -> float:
+        states = torch.tensor(states, dtype = torch.float)
+        action = torch.tensor(action, dtype = torch.float)
+        reward = torch.tensor(reward, dtype = torch.float)
+        next_state = torch.tensor(next_state, dtype = torch.float)
+        
+        if len(states.shape) == 1:
+            # (1, x); else (n, x)
+            # learn with a particular random information
+            states = torch.unsqueeze(states, 0)
             action = torch.unsqueeze(action, 0)
             reward = torch.unsqueeze(reward, 0)
-            done = (done, )
-
-        # 1: predicted Q values with current state
-        pred = self.model(state)
-
-        target = pred.clone()
-        for idx in range(len(done)):
-            Q_new = reward[idx]
-            if not done[idx]:
-                Q_new = reward[idx] + self.gamma * torch.max(self.model(next_state[idx]))
-
-            target[idx][torch.argmax(action[idx]).item()] = Q_new
-    
-        # 2: Q_new = r + y * max(next_predicted Q value) -> only do this if not done
-        # pred.clone()
-        # preds[argmax(action)] = Q_new
+            next_state = torch.unsqueeze(next_state, 0)
+            
+            gameOver = (gameOver, )
+            
+        ### predict Q-Value with current state ###
+        prediction = self.model(states) # perform forward operation
+        
+        target = prediction.clone().detach()
+        for idx in range(len(gameOver)):
+            QNew = reward[idx]
+            
+            # print(target)
+            if not gameOver[idx]:
+                QNew = reward[idx] + self.gamma * torch.max(self.model(next_state[idx]))
+            
+            # print(target)
+            target[idx][torch.argmax(action[idx]).item()] = QNew
+            # print(target)
+            
+        ### update nn based on Q-Value ###
         self.optimizer.zero_grad()
-        loss = self.criterion(target, pred)
-        loss.backward()
-
+        losses = self.criterion(target, prediction)
+        # print(losses)
+        losses.backward() # gradient descent
         self.optimizer.step()
+        
+        return round(float(losses), 3)

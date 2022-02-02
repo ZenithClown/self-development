@@ -1,5 +1,5 @@
 {
-    "SPEED" : 20,
+    "SPEED" : 50,
     "BLOCK_SIZE" : 20,
     "COLORS" : {
         "BACKGROUND" : [0, 0, 0],

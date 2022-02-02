@@ -40,7 +40,7 @@ class SnakeGame(object):
     font  = pygame.font.Font(join(abspath(dirname(__file__)), "..", "static", "fonts", "Oswald-ExtraLight.ttf"), 17)
     point = namedtuple("point", "x, y")
 
-    def __init__(self, width : int = 640, height : int = 480, enableAI : bool = False) -> None:
+    def __init__(self, width : int = 640, height : int = 480, enableAI : bool = False, **kwargs) -> None:
         self.width = width
         self.height = height
 
@@ -57,6 +57,7 @@ class SnakeGame(object):
         pygame.display.set_caption("Snake Game")
 
         # * initialize game with initial parameters
+        self.initial_snake_length = kwargs.get("initial_snake_length", 3)
         self._init_game_()
 
 
@@ -65,13 +66,12 @@ class SnakeGame(object):
         self.direction = DIRECTION.RIGHT
         self.snakeHead = self.point(self.width / 2, self.height / 2)
 
-        self.snake = [
-            self.snakeHead,
-            self.point(self.snakeHead.x - self.BLOCK_SIZE, self.snakeHead.y),
-            self.point(self.snakeHead.x - (2 * self.BLOCK_SIZE), self.snakeHead.y)
-        ]
+        self.snake = [self.snakeHead]
+        for idx in range(self.initial_snake_length - 1):
+            self.snake.append(self.point(self.snakeHead.x - (idx + 1) * self.BLOCK_SIZE, self.snakeHead.y))
 
         self.score = 0
+        self.food = None
         self._place_food_() # place food randomly, and initialize food
 
         # ! set a frame/loop counter
@@ -178,7 +178,7 @@ class SnakeGame(object):
         self.snake.insert(0, self.snakeHead)
 
         ### check if game over ###
-        if (self._is_collision_()) or (len(self.snake) * 100 <= self.num_frames):
+        if (self._is_collision_()) or (len(self.snake) * 50 <= self.num_frames):
             reward -= 10 # penalize the nn-model
             return reward, True, self.score # True > game is over due to collision
 
@@ -283,7 +283,6 @@ class SnakeGame(object):
             raise ValueError("Internal Error, this direction should not be registered")
 
         self.snakeHead = self.point(x, y)
-        return None
 
 
 if __name__ == "__main__":

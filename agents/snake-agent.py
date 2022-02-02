@@ -105,7 +105,7 @@ class SnakeAgent(object):
 
 
     def train_short_memory(self, states, action, reward, next_state, _is_game_over_):
-        self.trainer.train_step(states, action, reward, next_state, _is_game_over_) # w/o batch
+        _ = self.trainer.train_step(states, action, reward, next_state, _is_game_over_) # w/o batch
 
 
     def train_long_memory(self) -> None:
@@ -117,7 +117,8 @@ class SnakeAgent(object):
             mini_sample = self.memory
 
         states, action, reward, next_state, _is_game_over_ = zip(*mini_sample)
-        self.trainer.train_step(states, action, reward, next_state, _is_game_over_)
+        loss = self.trainer.train_step(states, action, reward, next_state, _is_game_over_)
+        return loss
 
 
     def _store_history_(self, states, action, reward, next_state, _is_game_over_):
@@ -127,7 +128,7 @@ class SnakeAgent(object):
     def get_action(self, states : np.ndarray) -> Iterable:
         """Get Action based on States"""
 
-        self.epsilon = 80 - self.n_games # tradeoff explore/exploit
+        self.epsilon = 600 - self.n_games # tradeoff explore/exploit
         final_move = [0, 0, 0]
 
         if random.randint(0, 200) < self.epsilon:
@@ -152,19 +153,21 @@ if __name__ == "__main__":
     ### define params to keep track of model performance ###
     scores = []
     mean_scores = []
+    model_losses = []
     
     best_score = 0
     total_score = 0 # for calculating mean of all gameplays
 
     ### define models, agents, etc. and start training ###
     print(f"{time.ctime()} Start Initializations")
-    game = SnakeGame(enableAI = True)
+    game = SnakeGame(enableAI = True, initial_snake_length = 4)
 
-    model = Linear_QNet(11, 256, 3)
-    agent = SnakeAgent(model, QTrainer, BLOCK_SIZE = BLOCK_SIZE, lr = 1e-3)
+    model = LinearQNet(11, 256, 3)
+    agent = SnakeAgent(model, QTrainer, BLOCK_SIZE = BLOCK_SIZE, lr = 0.3)
 
     # start game, run unless game ends
     print(f"{time.ctime()} Start Model Training")
+    directory = join("/", "tmp", "models", "snake-game", time.ctime().replace(":", "-"))
     while True:
         state_old = agent.get_state(game)
         predicted_move = agent.get_action(state_old)
@@ -184,11 +187,12 @@ if __name__ == "__main__":
             game._init_game_()
             agent.n_games += 1
 
-            agent.train_long_memory()
+            loss = agent.train_long_memory()
+            model_losses.append(loss)
 
             if score > best_score:
                 best_score = score
-                agent.model.save()
+                agent.model.save(directory = directory)
 
             print(f"  Game: #{agent.n_games}, Score = {score}, Best Score = {best_score}")
 
@@ -196,4 +200,4 @@ if __name__ == "__main__":
             total_score += score
             mean_scores.append(total_score / agent.n_games)
 
-            plot([scores, mean_scores])
+            plot([scores, mean_scores, model_losses], labels = ["score", "mean(score)", "model-loss"])
