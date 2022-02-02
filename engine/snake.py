@@ -234,12 +234,18 @@ class SnakeGame(object):
         return None, False, self.score # False > game is not over
 
 
-    def _is_collision_(self) -> bool:
+    def _is_collision_(self, pt = None) -> bool:
         """Check if the Snake Collides with the Boundary or Bites Self"""
 
+        if not pt:
+            # ! define point if already not define
+            # * if defined, check if collision occurs on the given point
+            # * this is useful when the `agent` needs to understand the environment
+            pt = self.snakeHead
+
         # boundary condition
-        if (self.snakeHead.x > self.width - self.BLOCK_SIZE) or (self.snakeHead.x < 0) or \
-           (self.snakeHead.y > self.height- self.BLOCK_SIZE) or (self.snakeHead.y < 0):
+        if (pt.x > self.width - self.BLOCK_SIZE) or (pt.x < 0) or \
+           (pt.y > self.height- self.BLOCK_SIZE) or (pt.y < 0):
             return True
 
         # if snake eats self

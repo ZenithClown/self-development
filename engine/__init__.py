@@ -16,4 +16,4 @@ List of Games Available:
 """
 
 # init-time options registrations
-from .snake import SnakeGame
+from .snake import * # noqa: F403
