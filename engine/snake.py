@@ -36,7 +36,7 @@ class DIRECTION(Enum):
 class SnakeGame(object):
     """Snake Game AI and Mechanics"""
 
-    font  = pygame.font.Font(join(abspath(dirname(__file__)), "Oswald-ExtraLight.ttf"), 17)
+    font  = pygame.font.Font(join(abspath(dirname(__file__)), "..", "static", "fonts", "Oswald-ExtraLight.ttf"), 17)
     point = namedtuple("point", "x, y")
 
     def __init__(self, width : int = 640, height : int = 480, enableAI : bool = False) -> None:
@@ -121,7 +121,7 @@ class SnakeGame(object):
     def _load_config_(self) -> None:
         """Load Configurations and Load as Class Attributes"""
 
-        with open(join(abspath(dirname(__file__)), "config.json"), "r") as f:
+        with open(join(abspath(dirname(__file__)), "..", "config", "snake.json"), "r") as f:
             _config = json.load(f)
 
         self.SPEED = _config["SPEED"]
