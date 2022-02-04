@@ -24,11 +24,11 @@ class SnakeAgent(object):
     def __init__(self, model, trainer, **kwargs) -> None:
         self.n_games = 0
         self.epsilon = kwargs.get("epsilon", 0) # randomness
-        self.gamma = kwargs.get("epsilon", 0.9) # discount rate
-        self.memory = deque(maxlen = kwargs.get("MAX_MEMORY", int(1e6))) # popleft()
+        self.gamma = kwargs.get("gamma", 0.9) # discount rate
+        self.memory = deque(maxlen = kwargs.get("MAX_MEMORY", int(1e5))) # popleft()
 
         self.BLOCK_SIZE = kwargs.get("BLOCK_SIZE") # `attr` must be loaded from config
-        self.BATCH_SIZE = kwargs.get("BLOCK_SIZE", int(1e3)) # torch/nn models' batch size
+        self.BATCH_SIZE = kwargs.get("BATCH_SIZE", int(1e3)) # torch/nn models' batch size
 
         ### define `model` and `trainer` attributes ###
         # defined from model params such that loading/changing is easy
@@ -128,16 +128,19 @@ class SnakeAgent(object):
     def get_action(self, states : np.ndarray) -> Iterable:
         """Get Action based on States"""
 
-        self.epsilon = 600 - self.n_games # tradeoff explore/exploit
+        self.epsilon = 80 - self.n_games # tradeoff explore/exploit
         final_move = [0, 0, 0]
 
         if random.randint(0, 200) < self.epsilon:
+            # * explore the environment
+            # TODO define dataclass to dynamically allocate
             final_move[random.randint(0, 2)] = 1
         else:
+            # * exploit with existing information
             state0 = torch.tensor(states, dtype = torch.float)
             prediction = self.model(state0)
 
-            final_move[torch.argmax(prediction).item()]
+            final_move[torch.argmax(prediction).item()] = 1
 
         return final_move
 
@@ -163,7 +166,7 @@ if __name__ == "__main__":
     game = SnakeGame(enableAI = True, initial_snake_length = 4)
 
     model = LinearQNet(11, 256, 3)
-    agent = SnakeAgent(model, QTrainer, BLOCK_SIZE = BLOCK_SIZE, lr = 0.3)
+    agent = SnakeAgent(model, QTrainer, BLOCK_SIZE = BLOCK_SIZE, lr = 1e-3)
 
     # start game, run unless game ends
     print(f"{time.ctime()} Start Model Training")
