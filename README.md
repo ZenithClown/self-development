@@ -11,3 +11,10 @@
 </h1>
 
 **TODO: Documentation**
+
+DeepQ Learning Python Project
+
+A collection of project built such that an AI model is trained
+to learn to play games. This project serves as a learning purpose
+for the author, but collaborators are welcomed to improve and/or
+more content to the project!
