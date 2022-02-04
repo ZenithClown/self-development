@@ -178,13 +178,13 @@ class SnakeGame(object):
         self.snake.insert(0, self.snakeHead)
 
         ### check if game over ###
-        if (self._is_collision_()) or (len(self.snake) * 50 <= self.num_frames):
+        if (self._is_collision_()) or (len(self.snake) * 100 <= self.num_frames): # TODO dynamic allocation
             reward -= 10 # penalize the nn-model
             return reward, True, self.score # True > game is over due to collision
 
         ### place food when eaten ###
         if self.snakeHead == self.food:
-            reward += 10 # reward the nn-model
+            reward = 10 # reward the nn-model
             self.score += 1 # update score on eaten
             self._place_food_()
         else:
