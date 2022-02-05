@@ -6,7 +6,7 @@
 
 <p align = "justify">The repository is built to develop understanding of Reinforcement Learning by practical implementation on developing an agent, creating an environment and all other features. The following projects are currently available:</p>
 
- 1. AI Learns to Play Snake Game
+ 1. [AI Learns to Play Snake Game](./projects/Snake-Game.md)
 
 ## Getting Started
 
