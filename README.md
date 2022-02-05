@@ -1,20 +1,7 @@
-<h1 align = "center">
-	DeepQ Learning <br>
-	<sub><b><i>(AI Learns to Play Snake Game)</i></b></sub> <br>
-	<a href = "https://www.linkedin.com/in/dpramanik/"><img height="16" width="16" src="https://unpkg.com/simple-icons@v3/icons/linkedin.svg"/></a>
-	<a href = "https://github.com/ZenithClown"><img height="16" width="16" src="https://unpkg.com/simple-icons@v3/icons/github.svg"/></a>
-	<a href = "https://gitlab.com/ZenithClown/"><img height="16" width="16" src="https://unpkg.com/simple-icons@v3/icons/gitlab.svg"/></a>
-	<a href = "https://www.researchgate.net/profile/Debmalya_Pramanik2"><img height="16" width="16" src="https://unpkg.com/simple-icons@v3/icons/researchgate.svg"/></a>
-	<a href = "https://www.kaggle.com/dPramanik/"><img height="16" width="16" src="https://unpkg.com/simple-icons@v3/icons/kaggle.svg"/></a>
-	<a href = "https://app.pluralsight.com/profile/Debmalya-Pramanik/"><img height="16" width="16" src="https://unpkg.com/simple-icons@v3/icons/pluralsight.svg"/></a>
-	<a href = "https://stackoverflow.com/users/6623589/"><img height="16" width="16" src="https://unpkg.com/simple-icons@v3/icons/stackoverflow.svg"/></a>
-</h1>
+<h1 align = "center">DeepQ Learning Projects</h1>
 
-**TODO: Documentation**
+<p align = "justify">The repository features a collection of projects associated with <code>Q-Learning</code>. As defined in <a href = "https://en.wikipedia.org/wiki/Q-learning">WiKiPedia</a>, <q>Q-learning is a model-free reinforcement learning algorithm to learn the value of an action in a particular state. <code>Q</code> refers to the function that the algorithm computes – the expected rewards for an action taken in a given state.</q> A very good introduction is available at <a href = "https://www.novatec-gmbh.de/en/blog/introduction-to-q-learning/">novatech-gmbh.de/blog</a> which explains about the <code><q>agent</q></code> and <code><q>environment</q></code> which correlates with <code>state, rewards, and action</code>.</p>
 
-DeepQ Learning Python Project
+<img src = "https://www.novatec-gmbh.de/wp-content/uploads/1_mPGk9WTNNvp3i4-9JFgD3w.png" alt = "Q-Learning Agent-Environment">
 
-A collection of project built such that an AI model is trained
-to learn to play games. This project serves as a learning purpose
-for the author, but collaborators are welcomed to improve and/or
-more content to the project!
+<p align = "justify">The repository is built to develop understanding of Reinforcement Learning by practical implementation on developing an agent, creating an environment and all other features. The following projects are currently available:</p>
