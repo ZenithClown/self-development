@@ -1,5 +1,5 @@
 {
-    "SPEED" : 50,
+    "SPEED" : 20,
     "BLOCK_SIZE" : 20,
     "COLORS" : {
         "BACKGROUND" : [0, 0, 0],
@@ -10,6 +10,6 @@
         "SNAKECOLOR1" : [80, 115, 245],
         "SNAKECOLOR2" : [80, 115, 145],
 
-        "FOODCOLOR" : [201, 119, 103]
+        "FOODCOLOR" : [41, 92, 55]
     }
 }
