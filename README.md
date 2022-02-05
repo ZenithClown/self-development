@@ -5,3 +5,18 @@
 <img src = "https://www.novatec-gmbh.de/wp-content/uploads/1_mPGk9WTNNvp3i4-9JFgD3w.png" alt = "Q-Learning Agent-Environment">
 
 <p align = "justify">The repository is built to develop understanding of Reinforcement Learning by practical implementation on developing an agent, creating an environment and all other features. The following projects are currently available:</p>
+
+ 1. AI Learns to Play Snake Game
+
+## Getting Started
+
+<p align = "justify">The program is developed in <code>py38</code> with all the required libraries listed in <a href = "./requirements.txt"><code>requirements.txt</code></a>. It is recomended to create a virtual environment (below an example is shown with <code>virtualenv</code>), and then proceed.</p>
+
+```python
+dpramanik$ python virtualenv
+dpramanik$ source activate venv/bin/activate
+dpramanik$ pip install -r requirements.txt
+dpramanik$ python agent.py
+```
+
+For details on `agent` check individual project documentations.
