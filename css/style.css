@@ -36,6 +36,10 @@
   color: darkblue;
 }
 
+.intro-contents {
+  z-index: 3;
+}
+
 .all-center {
   /* horizontal and vertical center alignment */
   text-align: center;
