@@ -20,3 +20,6 @@ dpramanik$ python agent.py
 ```
 
 For details on `agent` check individual project documentations.
+
+## Acknowledgement
+Project favicon/logo is avaiable [here](https://www.pngegg.com/en/png-wfvfy).
