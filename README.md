@@ -1,17 +1,16 @@
 <h1 align = "center">
   AI-ML Project Template <br>
-  <a href="https://github.com/ZenithClown/ai-ml-project-template/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/ZenithClown/ai-ml-project-template?logo=git&style=plastic"></a>
-  <a href="https://github.com/ZenithClown/ai-ml-project-template/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/ZenithClown/ai-ml-project-template?style=plastic&logo=github"></a>
-  <a href="https://github.com/ZenithClown/ai-ml-project-template/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ZenithClown/ai-ml-project-template?style=plastic&logo=github"></a>
+  <a href="https://github.com/ZenithClown/kaggle-competitions/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/ZenithClown/kaggle-competitions?logo=git&style=plastic"></a>
+  <a href="https://github.com/ZenithClown/kaggle-competitions/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/ZenithClown/kaggle-competitions?style=plastic&logo=github"></a>
+  <a href="https://github.com/ZenithClown/kaggle-competitions/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ZenithClown/kaggle-competitions?style=plastic&logo=github"></a>
   <a href="https://makeapullrequest.com/"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=plastic&logo=open-source-initiative"></a>
 </h1>
 
-<p align = "justify">AI-ML :brain: is an extremely fast growing environment where millions of new commits :eye: and thousands of users :man: :woman: are actively engaging on a daily basis :calendar:. To start a new project :package:, one should generally setup a basic project structure with some default branches and files. <a href = "https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository">GitHub Templates</a> solves this by setting up a template from an existing repositories. The template :receipt: provides minimalistic approach to quickly start a machine learning/artificial intelligence project. :gear:</p>
+<p align = "justify">AI-ML :brain: is an extremely fast growing environment where millions of new commits :eye: and thousands of users :man: :woman: are actively engaging on a daily basis :calendar:. This repository :package: is taken from a <a href = "https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository">GitHub Templates</a> which is available in the information bar! :gear:</p>
 
-<p align = "justify">For more information :bulb: on how to use this template and getting started, check <a href = "HOWTO.md">HOWTO</a>. Feel free to use the template as it suits you! :rocket:
-Would be great, if you :link: put a link to my template, if you use this repository!
+<p align = "justify">The code provided here are for self-learning purpose :bowtie:, and for participating in <a href = "https://www.kaggle.com/competitions">Kaggle Competitions</a>. For each competition, first create an <b>individual branch</b> tagged as <code>competitions/<name></code> and once the final results are declared, merge them in <code>master</code> for sharing. :godmode:</p>
 
-## :writing_hand: Project Name
+## :top: Kaggle Comepetitions
 
 <p align = "justify">:writing_hand: Please add/modify the project details on your first project start, as <a href = "https://www.atlassian.com/work-management/knowledge-sharing/documentation/importance-of-documentation">documentation is important</a> and let end user have proper knowledge! :dart: Start by editing all the sections/paragraphs marked with ":writing_hand:".</p>
 
