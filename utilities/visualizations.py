@@ -29,10 +29,24 @@ def corr_heatmap(df : pd.DataFrame, annot : bool = True, **kwargs):
     :param annot: Annotate heatmap labels. Defaults to True. When set
                   to True, then other keyword arguments can be used
                   to control the nature of the map.
+
+    Keyword Arguments
+    -----------------
+        * *copy* (`bool`): Dataframes are mutable, and when multiple
+          variables points to a same object, they point to the same
+          memory pointer. Thus, updating/modifying any one variable
+          results in changing both the object. When set to `True`,
+          the code uses the inbuilt `.copy(deepcopy = True)` function
+          to create a copy. Defaults to True.
+
+        TODO other keyword arguments documentations. check comments.
     """
 
     copy = kwargs.get("copy", True) # perform deep copy operation on df
     tau_ = kwargs.get("annot_threshold", 0.65) # performs `applymap` operation
+    cmap = kwargs.get("cmap", "viridis") # color map for heatmap
+    vmax = kwargs.get("vmax", 1.0) # min/max values for heatmap
+    vmin = kwargs.get("vmin", - 1.0) # min/max values for heatmap
 
     if copy:
         df = df.copy() # deepcopy
@@ -46,4 +60,4 @@ def corr_heatmap(df : pd.DataFrame, annot : bool = True, **kwargs):
     else:
         labels = None # defaults of `sns.heatmap`
 
-    return sns.heatmap(corr, annot = labels, fmt = '')
+    return sns.heatmap(corr, annot = labels, fmt = '', cmap = cmap, vmin = vmin, vmax = vmax)
