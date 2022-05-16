@@ -1,0 +1,3 @@
+# untrack specific data files and/or directories which may be
+# available online and/or does not require tracking
+uploaded/*.csv
