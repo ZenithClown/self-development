@@ -376,3 +376,6 @@ $RECYCLE.BIN/
 ### project specific ignores ###
 # ignore all log files, which are saved with an `.log` extension
 *.log
+
+# ignore npy files, which are created using np.save()
+*.npy
