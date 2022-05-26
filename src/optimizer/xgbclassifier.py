@@ -48,9 +48,9 @@ def objective(trial : object, data : Iterable, target : Iterable, **kwargs) -> f
         "alpha" : trial.suggest_loguniform("alpha", 1e-4, 1e-3), # L1 regularization
         "lambda" : trial.suggest_loguniform("lambda", 0.7, 10.0), # L2 regularization
         
-        "subsample" : trial.suggest_categorical("subsample", np.arange(0.3, 1.01, 0.1)),
+        "subsample" : trial.suggest_categorical("subsample", np.arange(0.1, 1.01, 0.1)),
         "learning_rate" : trial.suggest_categorical("learning_rate", np.arange(8e-3, 2.1e-2, 1e-3)),
-        "colsample_bytree" : trial.suggest_categorical("colsample_bytree", np.arange(0.3, 1.01, 0.1)), # tree sub-sample ratio
+        "colsample_bytree" : trial.suggest_categorical("colsample_bytree", np.arange(0.2, 1.01, 0.1)), # tree sub-sample ratio
         
         "max_depth" : trial.suggest_int("max_depth", 2, 20),
         "n_estimators" : trial.suggest_int("n_estimators", 50, 10000),
@@ -78,7 +78,13 @@ if __name__ == "__main__":
     from warnings import simplefilter
     simplefilter("ignore", category = UserWarning)
 
-    print(f"{ctime()} Starting XGBClassifier Optimization")
+    # in addition set optuna verbosity
+    # https://stackoverflow.com/a/69869850/6623589
+    # https://optuna.readthedocs.io/en/stable/reference/study.html
+    optuna.logging.set_verbosity(optuna.logging.ERROR)
+
+    # color code: https://stackoverflow.com/a/287944/6623589
+    print(f"\033[94m {ctime()} \033[0m Starting XGBClassifier Optimization")
 
     # the following arguments are required from the users
     # `datapath` : training dataset, with target values in order
@@ -92,7 +98,7 @@ if __name__ == "__main__":
         x_train = np.load(f)
         y_train = np.load(f)
 
-    print(f"{ctime()} All files are now loaded into memory.")
+    print(f"\033[94m {ctime()} \033[0m All files are now loaded into memory.")
 
     # perform model parameter tuning
     func = lambda trial : objective(trial, x_train, y_train)
@@ -104,14 +110,22 @@ if __name__ == "__main__":
         storage = f"sqlite:///{model_save_dir}/{OPTUNA_STUDY_NAME}.db" # save to disk
     )
     
+    print(f"\033[94m {ctime()} \033[0m Start Study/Optimization...")
     study.optimize(
         func,
-        n_trials = 41,
+        n_jobs = -1, # use the number of available CPUs
+        n_trials = 21, # maximum number of trials to run
+
+        # TODO callbacks, working: but default message with params are also displayed
         callbacks = [
             # define a list of `callbacks` for added performance
             # https://optuna.readthedocs.io/en/latest/tutorial/20_recipes/007_optuna_callback.html
             # currently adding a print callback, to display the best value and accuracy score
             # https://github.com/optuna/optuna/issues/2073
-            lambda study, trial : print(f"Trial: {trial.number}, Best Value: Trial-#{study.best_trial.number} = {round(study.best_value, 5)}")
+            lambda study, trial : print(
+                f"\033[94m {ctime()} \033[0m" + \
+                f"Trial: {trial.number} finished with {round(trial.value, 5)}," + \
+                f"Best Value: Trial-#{study.best_trial.number} = {round(study.best_value, 5)}"
+            )
         ]
     )
