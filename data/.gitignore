@@ -4,6 +4,6 @@ tabular-playground-series-may-2022.zip
 
 # generally, most of training and testing data from kaggle
 # competitions is available with the same name, and is ignored
-test.csv
-train.csv
+test*.csv
+train*.csv
 sample_submission.csv
