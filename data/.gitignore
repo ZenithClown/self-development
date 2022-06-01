@@ -1,6 +1,8 @@
 # untrack specific data files and/or directories which may be
 # available online and/or does not require tracking
+tabular-playground-series-dec-2022.zip
 tabular-playground-series-may-2022.zip
+amex-default-prediction.zip
 
 # generally, most of training and testing data from kaggle
 # competitions is available with the same name, and is ignored
