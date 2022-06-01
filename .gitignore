@@ -371,6 +371,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Windows icon files
+*.ico
+
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,windows,linux,osx,pycharm,git
 
 ### project specific ignores ###
