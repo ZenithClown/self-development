@@ -1,0 +1,1 @@
+**kaggle** is a popular *Data Science* platform which hosts monthly, weekly and various other types of competitions. I've participated in some of them, and here in this directory, codes for the same are present.
