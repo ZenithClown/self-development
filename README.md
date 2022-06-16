@@ -1,0 +1,45 @@
+<h1 align = "center">
+  AI-ML Project Template <br>
+  <a href="https://github.com/ZenithClown/kaggle-competitions/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/ZenithClown/kaggle-competitions?logo=git&style=plastic"></a>
+  <a href="https://github.com/ZenithClown/kaggle-competitions/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/ZenithClown/kaggle-competitions?style=plastic&logo=github"></a>
+  <a href="https://github.com/ZenithClown/kaggle-competitions/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ZenithClown/kaggle-competitions?style=plastic&logo=github"></a>
+  <a href="https://makeapullrequest.com/"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=plastic&logo=open-source-initiative"></a>
+</h1>
+
+<p align = "justify">AI-ML :brain: is an extremely fast growing environment where millions of new commits :eye: and thousands of users :man: :woman: are actively engaging on a daily basis :calendar:. This repository :package: is taken from a <a href = "https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository">GitHub Templates</a> which is available in the information bar! :gear:</p>
+
+<p align = "justify">The code provided here are for self-learning purpose :bowtie:, and for participating in <a href = "https://www.kaggle.com/competitions">Kaggle Competitions</a>. For each competition, first create an <b>individual branch</b> tagged as <code>competitions/<name></code> and once the final results are declared, merge them in <code>master</code> for sharing. :godmode:</p>
+
+## :top: Kaggle Comepetitions
+
+<p align = "justify">:writing_hand: Please add/modify the project details on your first project start, as <a href = "https://www.atlassian.com/work-management/knowledge-sharing/documentation/importance-of-documentation">documentation is important</a> and let end user have proper knowledge! :dart: Start by editing all the sections/paragraphs marked with ":writing_hand:".</p>
+
+> Client Name: :writing_hand: `client name` (`client details/informations`) :office:
+
+### Explorative Results
+
+<p align = "justify">:writing_hand: The template can also be used in creating research papers :book:, white paper :memo:, summary report :scroll:, production level codes :trophy:, etc. Necessary explorative results :tada: can be documented in this section.</p>
+
+> Report Link: :writing_hand: `report link` :closed_book:
+
+### Modelling Results
+
+<p align = "justify">:writing_hand: Information about the used models/engines/agents and their performance can be documented here :sparkles:. An AI/ML trained model can be stored in their respective directories.</p>
+
+> Report Link: :writing_hand: `report link` :ledger:
+
+### Configurations
+
+<p align = "justify">:writing_hand: A <a href = "config"><code>config</code></a> directory is available to store and configure project with variables, values and/or other informations related to project template.</p>
+
+### Project Deployment and Planning
+
+<p align = "justify">:bookmark: Relevant information related to project deployment, planning, production ready code. For more information :interrobang: on individual version check <a href = "CHANGELOG.md">CHANGELOG</a>. :heavy_check_mark:</p>
+
+## LICENSE & Contributions
+
+<p align = "justify">:label: A <a href = "CONTRIBUTING.md">CONTRIBUTING.md</a> file, in your open source repository or site, provides potential project contributors with a short guide to how they can help with your project or study group. It is convention to capitalize the word "contributing" as the file title, and to save it as a resource in markdown (hence the extension .md) (<a href = "https://mozillascience.github.io/working-open-workshop/contributing/">source</a>). :writing_hand: For <b>LICENSE</b> create or add your own file as <code>LICENSE</code>.</p>
+
+## Resources
+
+<p align = "justify">:card_index: Documentation and/or Resources for your codes, and other mentions can be included in this section! :key:</p>
