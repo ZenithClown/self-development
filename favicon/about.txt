@@ -1,6 +1,0 @@
-This logo was generated using the following font:
-
-- Font Title: Bokor
-- Font Author: Copyright 2020 The Bokor Project Authors (https://github.com/danhhong/Bokor)
-- Font Source: http://fonts.gstatic.com/s/bokor/v19/m8JcjfpeeaqTiR2WdInbcaxE.ttf
-- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
