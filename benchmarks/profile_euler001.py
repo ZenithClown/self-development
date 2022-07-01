@@ -25,9 +25,20 @@ import functools
 
 if __name__ == "__main__":
     ROOT = os.path.join("..") # considering `project-euler` directory
-    sys.path.append(ROOT) # allows to import from `euler001.py` files
+    LIBS = os.path.join(ROOT, "include")
+    sys.path.append(ROOT) # allows to import from `euler###.py` files
+    sys.path.append(LIBS) # allows to import from `euler###_.py` files
 
     from euler001 import layman
+    from euler001_ import sum_of_multiples
     print(f"{time.ctime()} Performing Tests for 001...")
-    t = timeit.Timer(functools.partial(layman, 100000)).timeit(number = 1000) # perform `number` of times
-    print(f" > `layman` Run Time: {round(t, 3)} secs.")
+    n = 100000 # for which result is to be checked
+    
+    t1 = timeit.Timer(functools.partial(layman, n)).timeit(number = 1000) # perform `number` of times
+    print(f" > `layman` Run Time: {round(t1, 3)} secs.")
+
+    # define a lambda function that will calculate the final result
+    total = lambda n : int(sum_of_multiples(n, 3) + sum_of_multiples(n, 5) - sum_of_multiples(n, 15))
+
+    t2 = timeit.Timer(functools.partial(total, n)).timeit(number = 1000) # perform `number` of times
+    print(f" > `sum_of_multiples` Run Time: {round(t2, 3)} secs.")
