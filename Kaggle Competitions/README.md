@@ -6,7 +6,7 @@
   <a href="https://makeapullrequest.com/"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=plastic&logo=open-source-initiative"></a>
 </h1>
 
-<p align = "justify">AI-ML :brain: is an extremely fast growing environment where millions of new commits :eye: and thousands of users :man: :woman: are actively engaging on a daily basis :calendar:. This repository :package: is taken from a <a href = "https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository">GitHub Templates</a> which is available in the information bar! :gear:</p>
+<p align = "justify">AI-ML :brain: is an extremely fast growing environment where millions of new commits :eye: and thousands of users :man: :woman: are actively engaging on a daily basis :calendar:. This repository :package: is taken from a <a href = "https://github.com/ZenithClown/ai-ml-project-template">GitHub Templates</a> which is available in the information bar! :gear:</p>
 
 <p align = "justify">The code provided here are for self-learning purpose :bowtie:, and for participating in <a href = "https://www.kaggle.com/competitions">Kaggle Competitions</a>. For each competition, first create an <b>individual branch</b> tagged as <code>competitions/<name></code> and once the final results are declared, merge them in <code>master</code> for sharing. :godmode:</p>
 
