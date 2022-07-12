@@ -1,0 +1,15 @@
+{
+    "SPEED" : 20,
+    "BLOCK_SIZE" : 20,
+    "COLORS" : {
+        "BACKGROUND" : [0, 0, 0],
+        "FOREGROUND" : [255, 255, 255],
+        
+        "BOUNDARY" : [115, 17, 17],
+        
+        "SNAKECOLOR1" : [80, 115, 245],
+        "SNAKECOLOR2" : [80, 115, 145],
+
+        "FOODCOLOR" : [41, 92, 55]
+    }
+}
