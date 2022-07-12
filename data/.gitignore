@@ -1,0 +1,16 @@
+# untrack specific data files and/or directories which may be
+# available online and/or does not require tracking
+
+
+# competition raw files are generally available in zip archives
+# so ignore all zip archives, as they are available to download
+# from https://www.kaggle.com/competitions, check list of
+# completed competitions at
+# https://www.kaggle.com/dpramanik/competitions?tab=completed
+*.zip
+
+# generally, most of training and testing data from kaggle
+# competitions is available with the same name, and is ignored
+test*.csv
+train*.csv
+sample_submission.csv

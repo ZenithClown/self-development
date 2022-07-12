@@ -1,0 +1,7 @@
+# This is a sensitive/competitive project. All the contents and/or
+# files should be released/made public only upon completition and ranking.
+# https://www.kaggle.com/competitions/amex-default-prediction/overview/description
+
+# currently ignore all jupyter notebook files, and specifically add the
+# file using `git add -f filename.ipynb` if required.
+*.ipynb
