@@ -43,7 +43,7 @@ TODO
   <!-- Table Description -->
   <tr>
     <td>
-      <a href = "[https://gitlab.com/ZenithClown/computer-configurations-and-setups](https://gitlab.com/ZenithClown/computer-configurations-and-setups/-/tree/master/template/snippets/vscode)"><img src="https://img.shields.io/static/v1?label=(snippets)&message=VS Code&color=007ACC&style=flat&logo=visualstudiocode"/></a>
+      <a href = "https://gitlab.com/ZenithClown/computer-configurations-and-setups/-/tree/master/template/snippets/vscode"><img src="https://img.shields.io/static/v1?label=(snippets)&message=VS Code&color=007ACC&style=flat&logo=visualstudiocode"/></a>
     </td>
   </tr>
 </table>
