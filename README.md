@@ -16,10 +16,11 @@
 
 <details>
 <summary>Click to open TOC</summary>
-<!-- MarkdownTOC autolink="true" levels="1,2,3,4,5,6" bracket="round" style="unordered" indent="  " autoanchor="false" markdown_preview="github" -->
+<!-- MarkdownTOC autolink="true" levels="1,2,3" bracket="round" style="unordered" indent="  " autoanchor="false" markdown_preview="github" -->
 
 - [Quick Start](#quick-start)
   - [Getting Started](#getting-started)
+- [Settings & Configurations](#settings-and-configurations)
 
 <!-- /MarkdownTOC -->
 </details>
@@ -29,3 +30,7 @@
 TODO
 
 ### Getting Started
+
+## Settings & Configurations
+
+<p align = "justify">🤓 Being a tech-enthusiast 💻, I spent much time and efforts in polishing ⚙️ my own working environment to perfection! Well, with experience 🧑 and maturity many settings and configurations 🛠️ are revamped and modified. I have kept a <i>dedicated</i> 🧲 <a href = "https://gitlab.com/ZenithClown/computer-configurations-and-setups">GitLab Repository 🔗</a> that helps me track the environment and a <i>quick-setup</i> if things go south! However, with the below 👇 mentioned links, you can directly look for a particular settings (if you wish to do so). Do put a 🌟 if you find my projects useful!</p>
