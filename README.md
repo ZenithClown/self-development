@@ -37,13 +37,13 @@ TODO
 
 <table align = "center">
   <tr>
-    <th>IDEs</th>
-    <th>Python Libraries</th>
+    <th><img src="https://github.com/FortAwesome/Font-Awesome/blob/6.x/svgs/solid/code.svg" height="16px"/> IDEs</th>
+    <th><img src="https://github.com/FortAwesome/Font-Awesome/blob/6.x/svgs/brands/python.svg" height="16px"/> Python Libraries</th>
   </tr>
   <!-- Table Description -->
   <tr>
     <td>
-      <a href = "https://gitlab.com/ZenithClown/computer-configurations-and-setups/-/tree/master/template/snippets/vscode"><img src="https://img.shields.io/static/v1?label=(snippets)&message=VS Code&color=007ACC&style=flat&logo=visualstudiocode"/></a>
+      <a href = "https://gitlab.com/ZenithClown/computer-configurations-and-setups/-/tree/master/template/snippets/vscode"><img src="https://img.shields.io/static/v1?label=(snippets)&message=VS Code&color=007ACC&style=flat&logo=visualstudiocode"/><img src="https://github.com/FortAwesome/Font-Awesome/blob/6.x/svgs/solid/arrow-up-right-from-square.svg" height="16px"/></a>
     </td>
   </tr>
 </table>
