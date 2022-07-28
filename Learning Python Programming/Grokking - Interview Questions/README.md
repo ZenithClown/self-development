@@ -8,7 +8,7 @@
 <summary>Click to open TOC</summary>
 <!-- MarkdownTOC autolink="true" levels="1,2,3" bracket="round" style="unordered" indent="  " autoanchor="false" markdown_preview="github" -->
 
-- **Pattern: Sliding Window** - Problems related with `iterables` (like an array, linked lists, etc.)
+- **Pattern - Sliding Window** - Problems related with `iterables` (like an array, linked lists, etc.)
   - Maximum Sum Subarray of Size K (easy)
 
 <!-- /MarkdownTOC -->
