@@ -9,7 +9,7 @@
 <!-- MarkdownTOC autolink="true" levels="1,2,3" bracket="round" style="unordered" indent="  " autoanchor="false" markdown_preview="github" -->
 
 - **[Pattern - Sliding Window](./01.%20Pattern%20-%20Sliding%20Window/)** - Problems related with `iterables` (like an array, linked lists, etc.)
-  - Maximum Sum Subarray of Size K (easy)
+  - Maximum Sum Subarray of Size K (easy) [[doc](./assets/docs/Maximum%20Sum%20Subarray%20of%20Size%20K.md)]
 
 <!-- /MarkdownTOC -->
 </details>
