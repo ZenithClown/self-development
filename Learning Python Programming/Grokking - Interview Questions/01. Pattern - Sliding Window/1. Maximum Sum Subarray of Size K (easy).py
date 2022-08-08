@@ -56,6 +56,15 @@ def layman(arr : Iterable, k : int) -> Iterable:
     return max_
 
 
+def convolution(arr : Iterable, k : int) -> Iterable:
+    """
+    A faster approach using convolution method defined under the
+    `numpy` module.
+    """
+
+    return np.max(np.convolve(arr, np.ones(k, dtype = int), mode = "valid"))
+
+
 if __name__ == "__main__":
     # run this code from command line as `python filename.py`
     # defined below the `inputs` for the function `layman` or others
@@ -63,10 +72,20 @@ if __name__ == "__main__":
     arr, k = np.random.randint(0, 100001, size = 1000), 3
 
     # using the `functools.partial` to run the code and also display output
-    partial_function = functools.partial(layman, arr, k)
+    partial_function_layman = functools.partial(layman, arr, k)
+    partial_function_convolution = functools.partial(convolution, arr, k)
 
     print(f"{time.ctime()} Checking Code Performance...")
     
-    t1 = timeit.Timer(partial_function).timeit(number = 1000) # perform `number` of times
-    print(f" > `layman` Run Time: {round(t1, 7)} secs.")
-    print(f" > `layman` Solution: {partial_function()}")
+    t1 = timeit.Timer(partial_function_layman).timeit(number = 1000) # perform `number` of times
+    print(f" > `layman` Run Time: {t1:.7f} secs.")
+    print(f" > `layman` Solution: {partial_function_layman()}")
+
+    t2 = timeit.Timer(partial_function_convolution).timeit(number = 1000) # perform `number` of times
+    print(f" > `convolution` Run Time: {t2:.7f} secs.")
+    print(f" > `convolution` Solution: {partial_function_convolution()}")
+
+    print("\n=== SUMMARY REPORT ===")
+    print("======================")
+    print(f"`convolution` is {t1 / t2 :.3f} times faster than `layman`.")
+    print("======================")
