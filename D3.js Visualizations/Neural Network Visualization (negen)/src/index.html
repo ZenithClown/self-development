@@ -1,0 +1,41 @@
+<html lang="en" ng-app="codepen">
+
+<head>
+  <meta charset="utf-8">
+
+  <script data-semver="1.6.4" src="http://code.angularjs.org/1.6.4/angular.js" data-require="angular.js@1.6.x"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/6.4.0/rzslider.min.js"></script>
+  <script src="script.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.8.1/css/tachyons.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/6.4.0/rzslider.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body ng-controller="MainCtrl as vm">
+  <div class="center tc mb4">
+    <p class="f3 fw1 pb1 tracked-tight"> </p>
+
+    <div class="slider-container">
+      <div class="">Input Layer Height</div>
+      <rzslider id="input-height-step-slider" rz-slider-model="vm.inputLayerHeightSlider.value"
+        rz-slider-options="vm.inputLayerHeightSlider.options"></rzslider>
+
+
+      <div class="">Hidden Layer Count</div>
+      <rzslider id="hidden-count-step-slider" rz-slider-model="vm.hiddenLayerCountSlider.value"
+        rz-slider-options="vm.hiddenLayerCountSlider.options"></rzslider>
+
+
+      <div class="">Output Layer Height</div>
+      <rzslider id="output-height-step-slider" rz-slider-model="vm.outputLayerHeightSlider.value"
+        rz-slider-options="vm.outputLayerHeightSlider.options"></rzslider>
+
+    </div>
+    <div class="" id="neuralNet"></div>
+  </div>
+</body>
+
+</html>
