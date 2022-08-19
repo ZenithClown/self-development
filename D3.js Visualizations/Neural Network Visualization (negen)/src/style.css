@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,500, 700');
+
+body {
+    font-family: Rubik, sans-sarif
+}
+
+
+text {
+    pointer-events: none;
+}
+
+.node:hover {
+    stroke: #999;
+    stroke-opacity: .6;
+    stroke-width: 4px;
+}
+
+.link {
+    stroke: #999;
+    stroke-opacity: .6;
+}
+
+
+.slider-container {
+    width: 50vw;
+    min-width: 400px;
+    margin: auto;
+}
+
+
+.button:focus {
+    outline: 0;
+}
+
+.rz-pointer:focus {
+    outline: 0;
+}
+
+.rz-active:after {
+    background-color: #BEB6AF !important;
+}
+
+.rzslider .rz-bar {
+    background: #d8e0f3;
+}
+
+.rzslider .rz-tick {
+    background: #d8e0f3;
+}
+
+.rzslider .rz-tick {
+    top: -2.5px !important;
+    left: -2.5px !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
