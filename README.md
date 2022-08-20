@@ -8,6 +8,11 @@
   <a href = "https://app.pluralsight.com/profile/Debmalya-Pramanik/"><img height="16" width="16" src="https://unpkg.com/simple-icons@v3/icons/pluralsight.svg"/></a>
   <a href = "https://stackoverflow.com/users/6623589/"><img height="16" width="16" src="https://unpkg.com/simple-icons@v3/icons/stackoverflow.svg"/></a>
   <a href = "https://www.hackerrank.com/dPramanik"><img height="16" width="16" src="https://unpkg.com/simple-icons@v3/icons/hackerrank.svg"/></a>
+  <br>
+  <a href="https://github.com/ZenithClown/self-development/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/ZenithClown/self-development?style=plastic"></a>
+  <a href="https://github.com/ZenithClown/self-development/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/ZenithClown/self-development?style=plastic"></a>
+  <a href="https://github.com/ZenithClown/self-development/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ZenithClown/self-development?style=plastic"></a>
+  <a href="https://github.com/ZenithClown/self-development/blob/master/LICENSE.md"><img alt="GitHub license" src="https://img.shields.io/github/license/ZenithClown/self-development"></a>
 </h1>
 
 <p align = "center"><b>A <i>Project Repository</i> to Show Case my Skills</b></p>
@@ -20,18 +25,20 @@
 
 - [Quick Start](#quick-start)
   - [Getting Started](#getting-started)
-- [Settings & Configurations](#settings-and-configurations)
+  - [Settings & Configurations](#settings--configurations)
 
 <!-- /MarkdownTOC -->
 </details>
 
 ## Quick Start
 
-TODO
+<p align = "justify">GitHub is an excellent place to showcase skills, codes and enthusiasm for open source. The repository is dedicated for my learning purpose, but you are welcome to open any PR or raise an issue. Check the <a href = "https://github.com/ZenithClown/.github/blob/master/.github/CONTRIBUTING.md">contribution guidelines</a> and <a href = "https://github.com/ZenithClown/.github/blob/master/.github/CODE_OF_CONDUCT.md">code of conduct</a> for more details. The repository is divided into sections, or by programming language that I generally use.</p>
+
+<p align = "justify">This repository falls under <a href = "./LICENSE.md">GPL 3.0</a> license, and the <a href = "./.github/CODEOWNERS">CODEOWNERS</a> file is featured. Do update the file if you are contributing to this repository, and your name/ID will be highlighted. If you want to use any part of the code for academic purpose, do <code>cite</code> this repository.</a>
 
 ### Getting Started
 
-## Settings & Configurations
+### Settings & Configurations
 
 <p align = "justify">🤓 Being a tech-enthusiast 💻, I spent much time and efforts in polishing ⚙️ my own working environment to perfection! Well, with experience 🧑 and maturity many settings and configurations 🛠️ are revamped and modified. I have kept a <i>dedicated</i> 🧲 <a href = "https://gitlab.com/ZenithClown/computer-configurations-and-setups">GitLab Repository 🔗</a> that helps me track the environment and a <i>quick-setup</i> if things go south! However, with the below 👇 mentioned links, you can directly look for a particular settings (if you wish to do so). Do put a 🌟 if you find my projects useful!</p>
 
