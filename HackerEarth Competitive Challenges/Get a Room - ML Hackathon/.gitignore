@@ -1,0 +1,7 @@
+# ignore the input files
+47417050-0-dataset.zip
+dataset/*.csv
+dataset/total.xlsx
+
+# ignore output directory
+output/
