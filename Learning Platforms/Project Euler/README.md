@@ -15,7 +15,14 @@
 
 <p align = "justify">🤓<b><a href = "https://projecteuler.net/about">Project Euler</a></b> is a website dedicated to a series of computational problems ♾️ intended to be solved with computer 💻 programs 📜. This repository 🏷️, lists out the solutions for Project Euler, solved using <b><code>python3</code></b>.</p>
 
-## Running the Code
+### Getting Started
+
+<p align = "justify">The <code>directory</code> contains solutions to defined set of problems. Check the section below to see how to run the code. To create a PR append the name <b><code>[euler/XXXX]</code></b> where <code>XXXX</code> is the problem number - this helps to narrow down/search related problems easily. Check:</p>
+
+* List of [Open Issue(s)](https://github.com/ZenithClown/self-development/issues?q=is%3Aissue+is%3Aopen+euler) - Related to Project Euler
+* Lis of [All Issue(s)](https://github.com/ZenithClown/self-development/issues?q=is%3Aissue+euler) - Related to Project Euler
+
+### Running the Code
 <p align = "justify">Using any Environment, where python3 is installed, this codes can be run - without requiring any sophisticated libraries (like NumPy, pandas, etc.). The general convention is as below:</p>
 
 ```python
