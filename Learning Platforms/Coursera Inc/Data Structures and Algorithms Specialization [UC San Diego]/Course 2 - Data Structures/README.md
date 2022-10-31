@@ -7,10 +7,8 @@ In 💻 Computer Science, **Data Structure** is an way to efficiently store and 
 To enhance my programming skills, I had taken up the course on [Data Structures & Algorithms Specializations](https://www.coursera.org/specializations/data-structures-algorithms) and this is [Course 2](coursera.org/learn/data-structures?specialization=data-structures-algorithms) of the specialization. Data structure is classified into *linear* and *non-linear* structure with additional classification as below:
 
 <div align = "center">
-
-![Classification of Data Structure](./assets/images/data-structure-types.jpg)
-**Fig.:** Classification of Data Structure ([source](https://www.geeksforgeeks.org/data-structures/))
-
+  <img src = "./assets/images/data-structure-types.jpg" align = "center" />
+  <p align = "center"><b>Figure:</b> Classification of Data Structure (<a href = "https://www.geeksforgeeks.org/data-structures/">source</a>)
 </div>
 
 ## About the Course
