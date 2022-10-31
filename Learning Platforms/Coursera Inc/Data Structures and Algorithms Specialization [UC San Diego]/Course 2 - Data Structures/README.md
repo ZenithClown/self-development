@@ -2,6 +2,12 @@
 
 <div align = "justify">
 
+In 💻 Computer Science, **Data Structure** is an way to efficiently store and manage data 🆗 - in other words, it is an way of arranging data on a computer so that it can be accessed and updated efficiently ([source](https://www.geeksforgeeks.org/data-structures/)).
+
+To enhance my programming skills, I had taken up the course on [Data Structures & Algorithms Specializations](https://www.coursera.org/specializations/data-structures-algorithms) and this is [Course 2](coursera.org/learn/data-structures?specialization=data-structures-algorithms) of the specialization. Data structure is classified into *linear* and *non-linear* structure with additional classification as below:
+
+![Classification of Data Structure](./assets/images/data-structure-types.jpg)
+
 ## About the Course
 
 A good algorithm usually comes together with a set of good data structures that allow the algorithm to manipulate the data efficiently. In this online course, we consider the common data structures that are used in various computational problems. You will learn how these data structures are implemented in different programming languages and will practice implementing them in our programming assignments. This will help you to understand what is going on inside a particular built-in implementation of a data structure and what to expect from it. You will also learn typical use cases for these data structures.
