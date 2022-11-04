@@ -38,6 +38,12 @@
 
 ### Getting Started
 
+<p align = "justify">🗂️ Contents are arranged by platforms, and language. I mainly work on 🔣 <code>python</code> and related tools for ✳️ <i>Data Science & Analyst Application Development</i> (for more details check <a href = "https://github.com/ZenithClown">🔗 profile</a>). List of known/required modifications include:</p>
+
+* ⚠️ Directory structure is not uniformed/completed.
+* 🚫 Some links may return 404 as some repositories are now not available.
+* ⛔ Code commit history is cluttered, as some repositories are now merged into `self-development` to keep development/learning work together.
+
 ### Settings & Configurations
 
 <p align = "justify">🤓 Being a tech-enthusiast 💻, I spent much time and efforts in polishing ⚙️ my own working environment to perfection! Well, with experience 🧑 and maturity many settings and configurations 🛠️ are revamped and modified. I have kept a <i>dedicated</i> 🧲 <a href = "https://gitlab.com/ZenithClown/computer-configurations-and-setups">GitLab Repository 🔗</a> that helps me track the environment and a <i>quick-setup</i> if things go south! However, with the below 👇 mentioned links, you can directly look for a particular settings (if you wish to do so). Do put a 🌟 if you find my projects useful!</p>
