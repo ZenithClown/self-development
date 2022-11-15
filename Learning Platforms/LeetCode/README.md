@@ -7,8 +7,8 @@
   ![Visitors Count](https://visitor-badge.laobi.icu/badge?page_id=ZenithClown.self-development)
   ![Update Status](https://img.shields.io/badge/update-weekly-green.svg)
   <br>
-  ![2.2%](https://progress-bar.dev/2?title=progress)
-  ![Total Progress](https://img.shields.io/badge/progress-54%20%2F%202463-ff69b4.svg)
+  ![3.0%](https://progress-bar.dev/3?title=progress)
+  ![Total Progress](https://img.shields.io/badge/progress-75%20%2F%202463-ff69b4.svg)
   <br>
   
   <details>
