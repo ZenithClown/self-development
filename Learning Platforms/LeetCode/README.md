@@ -7,8 +7,8 @@
   ![Visitors Count](https://visitor-badge.laobi.icu/badge?page_id=ZenithClown.self-development)
   ![Update Status](https://img.shields.io/badge/update-weekly-green.svg)
   <br>
-  ![3.0%](https://progress-bar.dev/3?title=progress)
-  ![Total Progress](https://img.shields.io/badge/progress-75%20%2F%202463-ff69b4.svg)
+  ![Solution Available: 0.0%](https://progress-bar.dev/0?title=progress)
+  ![Total Progress](https://img.shields.io/badge/progress-12%20%2F%202463-ff69b4.svg)
   <br>
   
   <details>
@@ -22,7 +22,7 @@
 
 <div align = "justify">
   
-  A place to 🖼️ showcase my activities and codes from [**`LeetCode`**](https://leetcode.com/MrHobo/), and store my 💻 _code works_ and 👨‍🎓 learning. The directory is divided into following sections - (i) 🏭 Study Plans, (ii) 🔁 extensions, and (iii) *language* specific solution files 📔.
+  A place to 🖼️ showcase my activities and codes from [**`LeetCode`**](https://leetcode.com/MrHobo/), and store my 💻 _code works_ for 👨‍🎓 learning and future references. The directory is divided into following sections - (i) 🏭 Study Plans, (ii) 🔁 extensions, and (iii) *language* specific solution files 📔.
   
   * 🌟 LeetCode posts new questions *weekly*, and I am trying to learn as many things as possible!
   * ✔️ Check my other coding practices and solutions [here](https://github.com/ZenithClown/self-development).
