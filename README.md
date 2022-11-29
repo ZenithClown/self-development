@@ -84,7 +84,7 @@
 
 The `repository` is divided into the following below mentioned *subdirectory* which are available with their own set of `README.md` files, and other optional files (like template/boilerplate codes). Quickly navigate to the sections mentioned below.
 
-- 📊 [**Courses for Skills Development**](./courses) : with the advent of MOOCs many courses are available, and this section showcases *study materials* and *code files* used in the course. The courses are again subdivided by platforms, like
-  * [Coursera Inc](./courses/coursera) - check my [profile]() and [certifications](). Each course is further categorised by `specializations/courses` as mentioned.
+- 📊 [**Courses for Skills Development**](./Online%20Courses/) : with the advent of MOOCs many courses are available, and this section showcases *study materials* and *code files* used in the course. The courses are again subdivided by platforms, like
+  * [Coursera Inc](./Online%20Courses/coursera) - check my [profile]() and [certifications](). Each course is further categorised by `specializations/courses` as mentioned.
 
 </div>
