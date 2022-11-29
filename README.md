@@ -26,6 +26,7 @@
 - [Quick Start](#quick-start)
   - [Getting Started](#getting-started)
   - [Settings & Configurations](#settings--configurations)
+- [Navigation & Quick-Links](#navigation--quick-links)
 
 <!-- /MarkdownTOC -->
 </details>
@@ -60,3 +61,30 @@
     </td>
   </tr>
 </table>
+
+<div align = "justify">
+
+## 🔀 Navigation & Quick-Links
+
+<details>
+<summary>⚠️ <a href = "https://en.wikipedia.org/wiki/Monorepo"><b><code>monorepo</code></b></a> ⚠️</summary>
+
+```
+  🛡️ monorepo:
+      that is multiple files, projects are accumulated in this repository.
+  🛠️ quick-links:
+      for most required sections are provided, do raise a PR if a link is not working.
+  ✂️ merged-repo:
+      previously, different repositories were used, however the idea is dropped, and all codes are merged.
+  📅 calendar:
+      a calendar sections is being created, which will showcase coding platform solutions by date.
+```
+
+</details>
+
+The `repository` is divided into the following below mentioned *subdirectory* which are available with their own set of `README.md` files, and other optional files (like template/boilerplate codes). Quickly navigate to the sections mentioned below.
+
+- 📊 [**Courses for Skills Development**](./Online%20Courses/) : with the advent of MOOCs many courses are available, and this section showcases *study materials* and *code files* used in the course. The courses are again subdivided by platforms, like
+  * [Coursera Inc](./Online%20Courses/coursera) - check my [profile]() and [certifications](). Each course is further categorised by `specializations/courses` as mentioned.
+
+</div>
