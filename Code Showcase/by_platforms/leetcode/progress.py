@@ -30,7 +30,7 @@ if __name__ == "__main__":
     
     # ! every week the total number of problem changes
     # let this be a constant for now, TODO create a pipeline
-    TOTAL = 2463
+    TOTAL = 2489
 
     # get the count of total files available in the directory
     # currently try to implement with `.py` file, TODO generalize
