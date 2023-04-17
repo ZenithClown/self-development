@@ -39,6 +39,42 @@ The **first line** of input consists of two space-separated integers, $N$ (numbe
 ### Output Format
 Print the minimum energy level $P$ such that exactly $X$ animals can be saved or transported. If it is not possible to save exactly X animals, then print `-1`.
 
+## Problem 2: The Magic Wand
+
+You are a wizard who possesses a magical wand that can be used to change the values of an array. Your **wand has two powers: `Increase` and `Decrease`**. With each use of the wand, you can either *increase or decrease any element of the array* by `1`.
+
+One day, a group of villagers came to you with a problem. They had an array of positive integers of size $N$ and a set of queries of size $M$. For each query, $Q_i$ (`queries[i]`), they wanted to make all the elements of the array equal to `queries[i]` using your magic wand.
+
+To help the villagers, you decided to use your magic wand to perform the operations. However, each time you perform an operation, the cost of using your wand increases. **The cost of using your wand for an operation on an element is equal to the absolute difference between the value of the element and the desired value after the operation.**
+
+### Example & Use Case
+
+If you want to change an element from 5 to 3, it will cost you 2 (since, $|5 - 3| = 2$). If you want to change an element from 7 to 8, it will cost you 1 (as, $|7 - 8| = 1$). You can perform any number of operations on any element of the array for a given query. However, the cost of using the wand for each operation accumulates, and you want to minimize the total cost of all operations for each query.
+
+### Input Format
+
+The **first line** of the input consists of two space-separated integers $N$ (length of array) and $M$ (length of queries). The **second line** of input consists of $N$ space-separated integers `arr[i]`. The **third line** of input consists of $M$ space-separated integers `queries[i]`.
+
+**`CONSTRAINTS`**
+  * Length of Array: $1 \leq N \leq 10^5$
+  * Length of Queries: $1 \leq M \leq 10^5$
+  * Values of N: $1 \leq a_i \leq 10^9$
+  : Values of M: $1 \leq Q_i \leq 10^9$
+
+### Output Format
+
+Print a list of integers of cost of length **`m`**, where `cost[i]` is the minimum cost to make all elements of nums equal to `queries[i]`.
+
+```
+# Input Format:
+5 3
+1 2 3 4 5
+5 2 1
+
+# Output Format:
+10 7 10
+```
+
 ## Disclaimer
 
 The code commits are in-between the events, however they are hosted on GitHub (i.e. made public from this repository) after the end of event for fair play and usage. This code is shared for learning purposes, and is not shared on public domain before the end of the event.
