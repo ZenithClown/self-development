@@ -39,6 +39,9 @@ The **first line** of input consists of two space-separated integers, $N$ (numbe
 ### Output Format
 Print the minimum energy level $P$ such that exactly $X$ animals can be saved or transported. If it is not possible to save exactly X animals, then print `-1`.
 
+### Code & Explanation
+Code file is available in [`forest_fire.py`](./forest_fire.py). Approach is simple, for each element, update `x` which gives the current number of animals that can be saved for a given energy level. Based on it, the output is generated.
+
 ## Problem 2: The Magic Wand
 
 You are a wizard who possesses a magical wand that can be used to change the values of an array. Your **wand has two powers: `Increase` and `Decrease`**. With each use of the wand, you can either *increase or decrease any element of the array* by `1`.
@@ -73,6 +76,23 @@ Print a list of integers of cost of length **`m`**, where `cost[i]` is the minim
 
 # Output Format:
 10 7 10
+```
+
+### Code & Explanation
+Code file is available in [`the_magic_wand.py`](./the_magic_wand.py). The problem is solved using `brute_force()` approach, however the code fails due to **"Time Limit Exceeded"** because of huge array size. The array `A` and `Q` is generated considering maximum constraint (as in problem) using:
+
+```python
+import random
+
+if __name__ == "__main__":
+  random.seed(7)
+  A = [random.randint(1, 10 ** 5) for _ in range(10 ** 6)]
+  Q = [random.randint(1, 10 ** 5) for _ in range(10 ** 6)]
+```
+
+The code is profiled using [`cProfile`](https://docs.python.org/3/library/profile.html#module-cProfile) and [`pstats`](https://docs.python.org/3/library/profile.html#module-pstats) module, and the results are as below:
+
+```shell
 ```
 
 ## Disclaimer
